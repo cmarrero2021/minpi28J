@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'UNESR 28J',
-    'title_prefix' => 'UNESR 28J | ',
+    'title' => 'MINPI 28J',
+    'title_prefix' => 'MINPI 28J | ',
     'title_postfix' => '',
 
     /*
@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>UNESR</b>28J',
+    'logo' => '<b>MINPI</b>28J',
     'logo_img' => 'vendor/adminlte/dist/img/elecciones.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,

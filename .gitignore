@@ -22,3 +22,11 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 rutas.txt
+database/migrations/mig1.txt
+db/
+db/migrations.rar
+db/Models.rar
+db/migrations/mig.txt
+db/migrations/renombrar.bat
+db/models/models.txt
+resources/views/home.blade.orig.php
