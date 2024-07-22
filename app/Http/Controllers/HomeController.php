@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\VterritoriosMovilizacion;
+use App\Models\VestadosMovilizacion;
+use App\Models\VacumuladoEstado;
 use App\Models\VtotalMovilizacionHora;
 use App\Models\VacumuladoNucleo;
 use Illuminate\Support\Facades\DB;
@@ -34,6 +36,8 @@ class HomeController extends Controller
         //     ->where('tipo','<>','total_trabajadores')
         //     ->get();
 
+        $estados_movilizacion = VestadosMovilizacion::all();
+        $estados = VacumuladoEstado::all();
         $movilizacion_hora = VtotalMovilizacionHora::all();
         $movilizacion = VterritoriosMovilizacion::all();
         $nucleos = VacumuladoNucleo::all();
@@ -82,6 +86,7 @@ class HomeController extends Controller
             'movilizacion',
             'movilizacion_hora',
             'nucleos',
+            'estados',
         ));
     }
     private function modificarArray($array)

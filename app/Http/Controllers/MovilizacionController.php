@@ -7,6 +7,7 @@ use App\Models\VtotalMovilizacionHora;
 use App\Models\VtotalMovilizacionHoraTra;
 use App\Models\VtotalMovilizacionHoraEst;
 use App\Models\VnucleosMovilizacionHora;
+use App\Models\VestadosMovilizacion;
 use App\Models\VestadosMovilizacionHora;
 use App\Models\VestadosMovilizacionHoraTra;
 use App\Models\VestadosMovilizacionHoraEst;
@@ -82,7 +83,8 @@ class MovilizacionController extends Controller
         $offset = $request->input('offset', 0);
         $limit = $request->input('limit', 10);
         $user = Auth::user();
-        $query = VestadosMovilizacionHora::query();
+        $query = VestadosMovilizacion::query();
+        // $query = VestadosMovilizacionHora::query();
         //MODIFICAR PARA ASIGNAR ESTADOS A USUARIOS
         // if (!$user->hasRole('Admin')) {
         //     $nucleos = DB::table('users_nucleos')

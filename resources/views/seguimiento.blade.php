@@ -120,7 +120,6 @@
             $('#tbl-seguimiento').bootstrapTable('showColumn', 'observaciones');
             $('#tbl-seguimiento').bootstrapTable('updateCell', {index: index, field: 'hora_voto', value: '<input class="form-control bg-primary" id="check_hora_voto" type="time" >'});
             $('#tbl-seguimiento').bootstrapTable('updateCell', {index: index, field: 'observaciones', value: '<textarea class="form-control bg-primary" id="check_observaciones"></textarea>'});
-            $('#tbl-seguimiento').bootstrapTable('updateCell', {index: index, field: 'telefono', value: '<input class="form-control bg-dark" id="check_telefono" type="number" value='+row.telefono+' readonly>'});
             $('.chequear').addClass('d-none');
             $('#save' + index).removeClass('d-none');
             $('#del' + index).removeClass('d-none');

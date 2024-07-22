@@ -70,7 +70,6 @@ class TrabajadorController extends Controller
             }
             $query->whereIn('nucleo_id',$anid);
         }
-        
         if ($request->has('search')) {
             $search = $request->search;
             $query->where(function ($query) use ($user,$search) {
@@ -90,11 +89,10 @@ class TrabajadorController extends Controller
                     ->orWhere('observaciones', 'Ilike', '%' . $search . '%')
                 ;
             });            
-        } else {
-            if ($request->has('filter')) {
-                $filters = json_decode($request->filter, true);foreach ($filters as $column => $value) {
-                    $query->where($column, 'like', '%' . $value . '%');
-                }
+        } 
+        if ($request->has('filter')) {
+            $filters = json_decode($request->filter, true);foreach ($filters as $column => $value) {
+                $query->where($column, 'like', '%' . $value . '%');
             }
         }
         $total = $query->count();

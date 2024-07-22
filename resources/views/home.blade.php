@@ -67,7 +67,9 @@
     @include("dashboard.partials.mov-gen")
     @include('graficos.partials.nucleos')   
     @include('movilizacion.partials.resumen') 
-    @include('graficos.partials.resumen')    
+    @include('graficos.partials.resumen') 
+    @include("dashboard.partials.estados")
+    @include('graficos.partials.estados')   
 @stop
 @section('css')
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
@@ -269,6 +271,81 @@
 		theme,
 	};
 	var chart2 = toastui.Chart.barChart({ el, data, options });
+	/////////MOVILIZACION ESTADOS
+	var estados = @json($estados);
+	var el = document.getElementById('grf-estados');
+	var series = [];
+	estados.forEach(function(item) {
+		series.push({
+			name: item.estado,
+			data: [parseInt(item.acumulado)],
+			dataLabels: {
+				visible: true,
+				formatter: function(value, category, series) {
+					return series.name + ': ' + value;
+				}
+			}
+		});
+	});
+	var data = {
+		categories: ['Acumulado'],
+		series: series,
+	};
+	var theme = {
+		series: {
+			dataLabels: {
+				fontSize: 13,
+				fontWeight: 500,
+				color: '#000',
+				textBubble: { visible: true, arrow: { visible: true } },
+			},
+		},
+		exportMenu: {
+			button: {
+				backgroundColor: '#000000',
+				borderRadius: 5,
+				borderWidth: 2,
+				borderColor: '#000000',
+				xIcon: {
+					color: '#ffffff',
+					lineWidth: 3,
+				},
+				dotIcon: {
+					color: '#ffffff',
+					width: 10,
+					height: 3,
+					gap: 1,
+				},
+			},
+		},
+	};
+	var nomarch = obtenerFechaHoraActual()+" Movilización por estado"
+	var options = {
+		chart: { title: 'Movilización acumulada por estado', width: 800, height: 1000 },
+		series: {
+          selectable: true,
+          dataLabels: {
+            visible: true,
+          },
+        },
+		xAxis: {
+			title: 'estado',
+		},
+		yAxis: {
+			title: 'Acumulado',
+		},
+		tooltip: {
+			grouped: true,
+		},
+		legend: {
+			align: 'bottom',
+		},
+		exportMenu: {
+			filename: nomarch
+		},
+		theme,
+	};
+	var chart3 = toastui.Chart.barChart({ el, data, options });
 
     </script>
 @stop

@@ -66,8 +66,8 @@
                     </div>
                     <hr/>
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <label>NÚCLEO<span class="requerido">*</span></label><br/>
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <label>TERRITORIO<span class="requerido">*</span></label><br/>
                             <label id="lbl_nucleo" class="ver-campo"></label>
                             <select id="selNucleo" class="editar-campo form-control">
                                 <option value="">Seleccione</option>                                
@@ -77,13 +77,6 @@
                             <label>TIPO<span class="requerido">*</span></label><br/>
                             <label id="lbl_tipo" class="ver-campo"></label>
                             <select id="selTipo" class="editar-campo form-control">
-                                <option value="">Seleccione</option>                                
-                            </select>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <label>FORMACIÓN<span class="requerido">*</span></label><br/>
-                            <label id="lbl_formacion" class="ver-campo"></label>
-                            <select id="selFormacion" class="editar-campo form-control">
                                 <option value="">Seleccione</option>                                
                             </select>
                         </div>
@@ -162,19 +155,19 @@
                 </tr>
                 <tr>
                     <th data-formatter="operateFormatter" data-events="operateEvents"></th>
-                    <th data-field="id" data-filter-control="input" data-sortable="true">ID</th>
+                    <th data-field="id" data-sortable="true">ID</th>
                     <th data-field="cedula" data-filter-control="input" data-sortable="true">CEDULA</th>
                     <th data-field="nombres" data-filter-control="input" data-sortable="true">NOMBRES</th>
                     <th data-field="estado" data-filter-control="select" data-sortable="true">ESTADO</th>
                     <th data-field="municipio" data-filter-control="select" data-visible="false" data-sortable="true">MUNICIPIO</th>
                     <th data-field="parroquia" data-filter-control="select" data-visible="false" data-sortable="true">PARROQUIA</th>
-                    <th data-field="nucleo" data-filter-control="select" data-sortable="true">NUCLEO</th>
+                    <th data-field="nucleo" data-filter-control="select" data-sortable="true">TERRITORIO</th>
                     <th data-field="tipo_elector" data-visible="true" data-filter-control="select" data-sortable="true">TIPO</th>
                     <th data-field="telefono" data-visible="true">TELÉFONO</th>
                     <th data-field="email" data-visible="false">CORREO</th>
                     <th data-field="voto"  data-visible="true" data-filter-control="select" data-sortable="true">VOTÓ</th>
                     <th data-field="observaciones" data-visible="false" data-filter-control="select" data-sortable="true">OBSERVACIONES</th>
-                    <th data-field="hora_voto" data-visible="true" data-filter-control="select" data-sortable="true">HORA VOTO</th>
+                    <th data-field="hora_voto" data-visible="true" data-sortable="true">HORA VOTO</th>
                 </tr>
             </thead>
             <tbody></tbody>
