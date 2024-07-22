@@ -1,10 +1,10 @@
 <hr>
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="table-container">
                 <table 
                     id="tbl-mov-gen" 
-                    class="table table-hover" 
+                    class="table table-hover table-striped" 
                     data-toolbar="#toolbar"
                     data-toggle="table" 
                     data-url="{{route('elect_gen_mov')}}" 
@@ -28,9 +28,9 @@
                             <th colspan="4">MOVILIZACIÓN GENERAL</th>
                         </tr>
                         <tr>
-                            <th data-field="tipo">TIPO</th>
-                            <th data-field="total_movilizados">MOVILIZDOS</th>
-                            <th data-field="total_pormovilizar">POR MOVILIZAR</th>
+                            <th data-field="territorio">TERRITORIO</th>
+                            <th data-field="movilizados">MOVILIZADOS</th>
+                            <th data-field="por_movilizar">POR MOVILIZAR</th>
                             <th data-field="total">TOTAL</th>
                         </tr>
                     </thead>
@@ -38,7 +38,9 @@
                 </table>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6">
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="card-body">
                 <button id="fullscreenBtnGr1"  class = "btn btn-dark text-light" title="expandir gráfico"><i class="fas fa-expand-alt"></i></button>
                 <div id="grf-mov-gen" dir="ltr" style="display:flex;justify-content:center;">
