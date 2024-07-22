@@ -33,6 +33,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'index']);
     Route::resource('trabajadores', TrabajadorController::class)->names('admin.workers');
     Route::get('/trab_tabla',[TrabajadorController::class,'trab_tabla'])->name('trab_tabla');
+    Route::get('/trab_filtros', [TrabajadorController::class, 'trab_filtros'])->name('trab_filtros');
+
     Route::get('/seguimiento',[TrabajadorController::class,'seguimiento'])->name('workers.following');
     Route::get('/trab_seguimiento',[TrabajadorController::class,'trab_seguimiento'])->name('trab_seguimiento');
     Route::resource('roles', RolesController::class)->names('admin.roles');

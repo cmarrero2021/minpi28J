@@ -123,7 +123,7 @@
         </div>
         <table 
             id="tbl-trabajadores" 
-            class="table table-hover" 
+            class="table table-hover table-striped table-dark" 
             data-toolbar="#toolbar"
             data-toggle="table" 
             data-show-columns="true" 
@@ -218,6 +218,44 @@
                 let todosElemento = $("a:contains('NaN')");
                 todosElemento.first().text("Todos");
             }, 1000);
+            /////////////////
+            function loadFilterOptions(field) {
+                $.ajax({
+                    url: "{{ route('trab_filtros') }}",
+                    method: 'GET',
+                    data: { field: field },
+                    success: function(data) {
+                        var selectControl = $('select.bootstrap-table-filter-control-' + field);
+                        if (selectControl.length) {
+                            // Guardar la opción actualmente seleccionada
+                            var selectedOption = selectControl.val();
+                            
+                            selectControl.empty();
+                            selectControl.append($('<option>', { value: '', text: 'Todos' }));
+                            $.each(data.options, function(key, value) {
+                                selectControl.append($('<option>', {
+                                    value: key,
+                                    text: value
+                                }));
+                            });
+
+                            // Restaurar la opción seleccionada
+                            selectControl.val(selectedOption);
+                        }
+                    }
+                });
+            }
+
+            loadFilterOptions('estado');
+            loadFilterOptions('nucleo');
+            loadFilterOptions('tipo_elector');            
+            // $('#tbl-trabajadores').on('page-change.bs.table refresh.bs.table', function () {
+            $('#tbl-trabajadores').on('post-body.bs.table page-change.bs.table refresh.bs.table', function () {
+                loadFilterOptions('estado');
+                loadFilterOptions('nucleo');
+                loadFilterOptions('tipo_elector');
+            });            
+            /////////////////
             $('.subir').click(function(){
                  $("html, body").animate({ scrollTop: 0 }, 600);
             });
@@ -284,7 +322,6 @@
                 $("#mdl-trabajadores").modal("show")
                 
             });            
-        
         });
         function btnAgregar() {
             return {
@@ -651,5 +688,6 @@
                 }); 
             }                
         });
+        
     </script>
 @stop

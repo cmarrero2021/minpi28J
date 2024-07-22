@@ -320,4 +320,19 @@ class TrabajadorController extends Controller
             'rows' => $trabajadores
         ]);
     }
+    public function trab_filtros(Request $request)
+    {
+        $field = $request->input('field');
+        $options = Vtrabajador::distinct()->orderBy($field)->pluck($field);
+    
+        $result = [];
+        foreach ($options as $option) {
+            $result[$option] = $option;
+        }
+    
+        return response()->json([
+            'options' => $result
+        ]);
+    }
+    
 }
