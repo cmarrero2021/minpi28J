@@ -26,6 +26,7 @@ Auth::routes();
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/', [HomeController::class, 'index'])->name('home');
 Auth::routes();
+Route::get('/process_sms', [MensajesController::class, 'process_sms']);
 Route::get('/', function() {
     return view('home');
 })->name('home')->middleware('auth');
@@ -76,4 +77,5 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/sms',[MensajesController::class,'index'])->name('admin.sms');
     Route::get('/mens_tabla',[MensajesController::class,'mens_tabla'])->name('mens_tabla');
+    
 });

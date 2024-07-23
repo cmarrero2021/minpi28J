@@ -44,5 +44,18 @@ class MensajesController extends Controller
             'rows' => $mensajes
         ]);
     }
+    public function process_sms(Request $request) {
+        $text = $request->query('text');
+        $sender = $request->query('sender');
+        $date = $request->query('date');
+        $time = $request->query('time');
+        \Log::info('SMS recibido', [
+            'text' => $text,
+            'sender' => $sender,
+            'date' => $date,
+            'time' => $time,
+        ]);
+        return response("SMS processed successfully.", 200)->header('Content-Type', 'text/plain');
+    }
 
 }
