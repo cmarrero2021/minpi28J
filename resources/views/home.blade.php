@@ -96,6 +96,12 @@
     <script src="{{ asset('/assets/js/bootstrap-table-group-by.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@toast-ui/chart"></script>
     <script>
+        $(document).ready(function(){
+            setTimeout(function(){
+                console.log("act");
+                location.reload();
+            }, 300000); // 300000 milisegundos = 5 minutos
+        });        
         function obtenerFechaHoraActual() {
             let fecha = new Date();
             let dia = String(fecha.getDate()).padStart(2, '0');

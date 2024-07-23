@@ -319,29 +319,13 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        // [
-        //     'text'        => 'Trabajadores',
-        //     'url'         => 'trabajadores',
-        //     'icon'        => 'fas fa-user-tie',
-        //     'can'         => 'admin.workers.list',
-        // ],
+
         /////////
         [
             'text'    => 'Trabajadores',
             'icon'    => 'fas fa-user-tie',
             'can'     => '',
             'submenu' => [
-
-                // [
-                //     'text' => 'Trabajadores Reportaron',
-                //     'icon' => '',
-                //     'url'  => '#',
-                // ],
-                // [
-                //     'text' => 'Trabajadores No Reportaron',
-                //     'icon' => '',
-                //     'url'  => '#',
-                // ],
                 [
                     'text' => 'Trabajadores',
                     'icon' => 'fas fa-user-tie',
@@ -354,116 +338,31 @@ return [
                     'url'  => 'seguimiento',
                     'can'  => 'workers.following'
                 ],                
+                [
+                    'text' => 'Votaron',
+                    'icon' => 'fas fa-vote-yea',
+                    'url'  => 'votaron',
+                    'can'  => 'workers.voted'
+                ],                
             ],
         ],        
         [
             'text'    => 'Estadísticas',
             'icon'    => 'fas fa-window-restore',
+            'url'     => 'estadisticas_movilizacion',
             'can'     => 'admin.reports.list',
-            'submenu' => [
-                [
-                    'text' => 'Movilización',
-                    // 'icon' => 'fas fa-thumbtack',
-                    'icon' => 'fas fa-walking',
-                    'submenu' => [
-                        [
-                            'text' => 'Hora',
-                            'url' => 'estadisticas_movilizacion',
-                            'icon' => 'fas fa-clock'
-                        ],
-                        // [
-                        //     'text' => 'Media hora',
-                        //     'url' => '#',
-                        // ],
-                    ],
-                ],
-
-                // [
-                //     'text' => 'Cumplimiento',
-                //     'icon' => 'fas fa-thumbtack',
-                //     'submenu' => [
-                //         [
-                //             'text' => 'Circuito',
-                //             'url' => '#',
-                //         ],
-                //         [
-                //             'text' => 'Entes',
-                //             'url' => '#',
-                //         ],
-                //         [
-                //             'text' => 'Dependencias',
-                //             'url' => '#',
-                //         ],
-                //         [
-                //             'text' => 'Gabinetes',
-                //             'url' => '#',
-                //         ],
-                //         [
-                //             'text' => 'Parroquias',
-                //             'url' => '#',
-                //         ],
-                //     ],
-                // ],
-                // [
-                //     'text' => 'Metas',
-                //     'icon' => 'fas fa-thumbtack',
-                //     'submenu' => [
-                //         [
-                //             'text' => 'Circuito',
-                //             'url' => '#',
-                //         ],
-                //         [
-                //             'text' => 'Entes',
-                //             'url' => '#',
-                //         ],
-                //         [
-                //             'text' => 'Dependencias',
-                //             'url' => '#',
-                //         ],
-                //         [
-                //             'text' => 'Gabinetes',
-                //             'url' => '#',
-                //         ],
-                //         [
-                //             'text' => 'Parroquias',
-                //             'url' => '#',
-                //         ],
-                //     ],
-                // ],
-                // [
-                //     'text' => 'Trabajadores',
-                //     'icon' => 'fas fa-thumbtack',
-                //     'submenu' => [
-                //         [
-                //             'text' => 'Votaron',
-                //             'url' => '#',
-                //         ],
-                //         [
-                //             'text' => 'No votaron',
-                //             'url' => '#',
-                //         ],
-                //     ],
-                // ],
-            ],
         ],
         [
             'text'    => 'Gráficos',
             'icon'    => 'fas fa-chart-line',
             'can'     => 'admin.graphics.list',
-            'submenu' => [
-                [
-                    'text' => 'Movilización Hora',
-                    'url'  => 'graficos_movilizacion',
-                ],
-                // [
-                //     'text' => 'Movilización Media Hora',
-                //     'url'  => '#',
-                // ],
-                // [
-                //     'text' => 'Cumplimiento Gabinete',
-                //     'url'  => '#',
-                // ],
-            ],
+            'url'  => 'graficos_movilizacion',
+        ],
+        [
+            'text'        => 'SMS',
+            'url'         => 'sms',
+            'icon'        => 'fas fa-sms',
+            'can'         => 'admin.sms',
         ],
         // [
         //     'text'    => 'Auxiliares',

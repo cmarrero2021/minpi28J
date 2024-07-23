@@ -22,7 +22,7 @@
 	<div class="accordion-item">
 		<h2 class="accordion-header" id="encabezadoNucleo">
 			<button class="accordion-button collapsed bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#colapsoNucleo" aria-expanded="false" aria-controls="colapsoNucleo">
-				Movilización por Núcleo
+				Movilización por Territorio
 			</button>
 		</h2>
 		<div id="colapsoNucleo" class="accordion-collapse collapse" aria-labelledby="encabezadoNucleo" data-bs-parent="#acordeonMovilizacionTotal">
@@ -30,10 +30,10 @@
 				<!-- Seccion 2 -->
 				<div class="accordion-body">
                 @include('graficos.partials.nucleos')
-				<hr/>
+{{--				<hr/>
                 @include('graficos.partials.nucleoshoracant')
 				<hr/>
-                @include('graficos.partials.nucleoshoraacum')
+                @include('graficos.partials.nucleoshoraacum')--}}
 			</div>
 			</div>
 		</div>
@@ -234,97 +234,97 @@
 <<script>
 
 document.addEventListener('DOMContentLoaded', function() {
-	////DATA PARA REGIÓN CAPITAL//////
-	let data1 = @json($nucleos_hora_cap);
-	let contenedor1 = 'grf-nucleoshoracancap';
-	let valor1 = 'cant';
-	let titulo1 = 'Movilización Región Capital';
-	let can_nucleos_hora_cap;
-	generarGrafica(data1, contenedor1, valor1, titulo1, can_nucleos_hora_cap);
-	let data2 = @json($nucleos_hora_cap);
-	let contenedor2 = 'grf-nucleoshoraacucap';
-	let valor2 = 'acumulado';
-	let titulo2 = 'Movilización acumulada Región Capital';
-	let acum_nucleos_hora_cap;
-	generarGrafica(data2, contenedor2, valor2, titulo2, acum_nucleos_hora_cap);	
+	// ////DATA PARA REGIÓN CAPITAL//////
+	// let data1 = @json($nucleos_hora_cap);
+	// let contenedor1 = 'grf-nucleoshoracancap';
+	// let valor1 = 'cant';
+	// let titulo1 = 'Movilización Región Capital';
+	// let can_nucleos_hora_cap;
+	// generarGrafica(data1, contenedor1, valor1, titulo1, can_nucleos_hora_cap);
+	// let data2 = @json($nucleos_hora_cap);
+	// let contenedor2 = 'grf-nucleoshoraacucap';
+	// let valor2 = 'acumulado';
+	// let titulo2 = 'Movilización acumulada Región Capital';
+	// let acum_nucleos_hora_cap;
+	// generarGrafica(data2, contenedor2, valor2, titulo2, acum_nucleos_hora_cap);	
 
-	let data3 = @json($nucleos_hora_cen);
-	let contenedor3 = 'grf-nucleoshoracancen';
-	let valor3 = 'cant';
-	let titulo3 = 'Movilización Región Centro';
-	let can_nucleos_hora_cen;
-	generarGrafica(data3, contenedor3, valor3, titulo3, can_nucleos_hora_cen);	
-	let data4 = @json($nucleos_hora_cen);
-	let contenedor4 = 'grf-nucleoshoraacucen';
-	let valor4 = 'acumulado';
-	let titulo4 = 'Movilización acumulada Región Centro';
-	let acum_nucleos_hora_cen;
-	generarGrafica(data4, contenedor4, valor4, titulo4, acum_nucleos_hora_cen);	
+	// let data3 = @json($nucleos_hora_cen);
+	// let contenedor3 = 'grf-nucleoshoracancen';
+	// let valor3 = 'cant';
+	// let titulo3 = 'Movilización Región Centro';
+	// let can_nucleos_hora_cen;
+	// generarGrafica(data3, contenedor3, valor3, titulo3, can_nucleos_hora_cen);	
+	// let data4 = @json($nucleos_hora_cen);
+	// let contenedor4 = 'grf-nucleoshoraacucen';
+	// let valor4 = 'acumulado';
+	// let titulo4 = 'Movilización acumulada Región Centro';
+	// let acum_nucleos_hora_cen;
+	// generarGrafica(data4, contenedor4, valor4, titulo4, acum_nucleos_hora_cen);	
 
-	let data5 = @json($nucleos_hora_occ);
-	let contenedor5 = 'grf-nucleoshoracanocc';
-	let valor5 = 'cant';
-	let titulo5 = 'Movilización Región Occidente';
-	let cant_nucleos_hora_occ;
-	generarGrafica(data5, contenedor5, valor5, titulo5, cant_nucleos_hora_occ);	
-	let data6 = @json($nucleos_hora_occ);
-	let contenedor6 = 'grf-nucleoshoraacuocc';
-	let valor6 = 'acumulado';
-	let titulo6 = 'Movilización acumulada Región Occidente';
-	let acum_nucleos_hora_occ;
-	generarGrafica(data6, contenedor6, valor6, titulo6, acum_nucleos_hora_occ);	
+	// let data5 = @json($nucleos_hora_occ);
+	// let contenedor5 = 'grf-nucleoshoracanocc';
+	// let valor5 = 'cant';
+	// let titulo5 = 'Movilización Región Occidente';
+	// let cant_nucleos_hora_occ;
+	// generarGrafica(data5, contenedor5, valor5, titulo5, cant_nucleos_hora_occ);	
+	// let data6 = @json($nucleos_hora_occ);
+	// let contenedor6 = 'grf-nucleoshoraacuocc';
+	// let valor6 = 'acumulado';
+	// let titulo6 = 'Movilización acumulada Región Occidente';
+	// let acum_nucleos_hora_occ;
+	// generarGrafica(data6, contenedor6, valor6, titulo6, acum_nucleos_hora_occ);	
 
-	let data7 = @json($nucleos_hora_and);
-	let contenedor7 = 'grf-nucleoshoracanand';
-	let valor7 = 'cant';
-	let titulo7 = 'Movilización Región Andes';
-	let cant_nucleos_hora_and;
-	generarGrafica(data7, contenedor7, valor7, titulo7, cant_nucleos_hora_occ);	
-	let data8 = @json($nucleos_hora_and);
-	let contenedor8 = 'grf-nucleoshoraacuand';
-	let valor8 = 'acumulado';
-	let titulo8 = 'Movilización acumulada Región Andes';
-	let acum_nucleos_hora_and;
-	generarGrafica(data8, contenedor8, valor8, titulo8, acum_nucleos_hora_occ);	
+	// let data7 = @json($nucleos_hora_and);
+	// let contenedor7 = 'grf-nucleoshoracanand';
+	// let valor7 = 'cant';
+	// let titulo7 = 'Movilización Región Andes';
+	// let cant_nucleos_hora_and;
+	// generarGrafica(data7, contenedor7, valor7, titulo7, cant_nucleos_hora_occ);	
+	// let data8 = @json($nucleos_hora_and);
+	// let contenedor8 = 'grf-nucleoshoraacuand';
+	// let valor8 = 'acumulado';
+	// let titulo8 = 'Movilización acumulada Región Andes';
+	// let acum_nucleos_hora_and;
+	// generarGrafica(data8, contenedor8, valor8, titulo8, acum_nucleos_hora_occ);	
 
-	let data9 = @json($nucleos_hora_lla);
-	let contenedor9 = 'grf-nucleoshoracanlla';
-	let valor9 = 'cant';
-	let titulo9 = 'Movilización Región Llanos';
-	let cant_nucleos_hora_lla;
-	generarGrafica(data9, contenedor9, valor9, titulo9, cant_nucleos_hora_lla);	
-	let data10 = @json($nucleos_hora_lla);
-	let contenedor10 = 'grf-nucleoshoraaculla';
-	let valor10 = 'acumulado';
-	let titulo10 = 'Movilización acumulada Región Llanos';
-	let acum_nucleos_hora_lla;
-	generarGrafica(data10, contenedor10, valor10, titulo10, acum_nucleos_hora_lla);	
+	// let data9 = @json($nucleos_hora_lla);
+	// let contenedor9 = 'grf-nucleoshoracanlla';
+	// let valor9 = 'cant';
+	// let titulo9 = 'Movilización Región Llanos';
+	// let cant_nucleos_hora_lla;
+	// generarGrafica(data9, contenedor9, valor9, titulo9, cant_nucleos_hora_lla);	
+	// let data10 = @json($nucleos_hora_lla);
+	// let contenedor10 = 'grf-nucleoshoraaculla';
+	// let valor10 = 'acumulado';
+	// let titulo10 = 'Movilización acumulada Región Llanos';
+	// let acum_nucleos_hora_lla;
+	// generarGrafica(data10, contenedor10, valor10, titulo10, acum_nucleos_hora_lla);	
 
-	let data11 = @json($nucleos_hora_ori);
-	let contenedor11 = 'grf-nucleoshoracanori';
-	let valor11 = 'cant';
-	let titulo11 = 'Movilización Región Oriente';
-	let cant_nucleos_hora_ori;
-	generarGrafica(data11, contenedor11, valor11, titulo11, cant_nucleos_hora_ori);	
-	let data12 = @json($nucleos_hora_ori);
-	let contenedor12 = 'grf-nucleoshoraacuori';
-	let valor12 = 'acumulado';
-	let titulo12 = 'Movilización acumulada Región Oriente';
-	let acum_nucleos_hora_ori;
-	generarGrafica(data12, contenedor12, valor12, titulo12, acum_nucleos_hora_ori);	
+	// let data11 = @json($nucleos_hora_ori);
+	// let contenedor11 = 'grf-nucleoshoracanori';
+	// let valor11 = 'cant';
+	// let titulo11 = 'Movilización Región Oriente';
+	// let cant_nucleos_hora_ori;
+	// generarGrafica(data11, contenedor11, valor11, titulo11, cant_nucleos_hora_ori);	
+	// let data12 = @json($nucleos_hora_ori);
+	// let contenedor12 = 'grf-nucleoshoraacuori';
+	// let valor12 = 'acumulado';
+	// let titulo12 = 'Movilización acumulada Región Oriente';
+	// let acum_nucleos_hora_ori;
+	// generarGrafica(data12, contenedor12, valor12, titulo12, acum_nucleos_hora_ori);	
 
-	let data13 = @json($nucleos_hora_sur);
-	let contenedor13 = 'grf-nucleoshoracansur';
-	let valor13 = 'cant';
-	let titulo13 = 'Movilización Región Sur';
-	let cant_nucleos_hora_sur;
-	generarGrafica(data13, contenedor13, valor13, titulo13, cant_nucleos_hora_sur);	
-	let data14 = @json($nucleos_hora_sur);
-	let contenedor14 = 'grf-nucleoshoraacusur';
-	let valor14 = 'acumulado';
-	let titulo14 = 'Movilización acumulada Región Sur';
-	let acum_nucleos_hora_sur;
-	generarGrafica(data14, contenedor14, valor14, titulo14, acum_nucleos_hora_sur);	
+	// let data13 = @json($nucleos_hora_sur);
+	// let contenedor13 = 'grf-nucleoshoracansur';
+	// let valor13 = 'cant';
+	// let titulo13 = 'Movilización Región Sur';
+	// let cant_nucleos_hora_sur;
+	// generarGrafica(data13, contenedor13, valor13, titulo13, cant_nucleos_hora_sur);	
+	// let data14 = @json($nucleos_hora_sur);
+	// let contenedor14 = 'grf-nucleoshoraacusur';
+	// let valor14 = 'acumulado';
+	// let titulo14 = 'Movilización acumulada Región Sur';
+	// let acum_nucleos_hora_sur;
+	// generarGrafica(data14, contenedor14, valor14, titulo14, acum_nucleos_hora_sur);	
 
 	/// MOVILIZACION HORA
     var movilizacion = @json($movilizacion);
@@ -464,9 +464,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			},
 		},
 	};
-	var nomarch = obtenerFechaHoraActual()+" Movilización por núcleo a las "+max_hora_nucleos
+	var nomarch = obtenerFechaHoraActual()+" Movilización por territorio a las "+max_hora_nucleos
 	var options = {
-		chart: { title: 'Movilización acumulada por núcleo a las '+max_hora_nucleos, width: 1200, height: 1000 },
+		chart: { title: 'Movilización acumulada por territorio a las '+max_hora_nucleos, width: 1200, height: 1000 },
 		series: {
           selectable: true,
           dataLabels: {

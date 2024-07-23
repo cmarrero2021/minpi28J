@@ -83,8 +83,8 @@ class MovilizacionController extends Controller
         $offset = $request->input('offset', 0);
         $limit = $request->input('limit', 10);
         $user = Auth::user();
-        $query = VestadosMovilizacion::query();
-        // $query = VestadosMovilizacionHora::query();
+        // $query = VestadosMovilizacion::query();
+        $query = VestadosMovilizacionHora::query();
         //MODIFICAR PARA ASIGNAR ESTADOS A USUARIOS
         // if (!$user->hasRole('Admin')) {
         //     $nucleos = DB::table('users_nucleos')

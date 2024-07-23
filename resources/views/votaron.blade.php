@@ -1,117 +1,10 @@
 @extends('adminlte::page')
-@section('title','Trabajadores')
+@section('title','Trabajadores votaron')
 @section('content_header')
     <meta name="_token" content="{{ csrf_token() }}">
-    <h1 class="m-0 text-dark">Trabajadores</h1>
+    <h1 class="m-0 text-dark">Trabajadores votaron</h1>
 @stop
 @section('content')
-    <!-- Modal -->
-    <div class="modal fade" id="mdl-trabajadores" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content" data-bs-backdrop="static">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row" id="personal">
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <label>CÉDULA<span class="requerido">*</span></label><br/>
-                            <input id="txt_cedula" class="editar-campo form-control" type="number"> 
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-8">
-                            <label>NOMBRES<span class="requerido">*</span></label><br/>
-                            <input id="txt_nombre" class="editar-campo form-control" type="text">
-                        </div>
-                    </div> 
-                    <hr/>
-                    <div class="row" id="hora_hora_voto">
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <label>VOTÓ</label><br/>
-                            <label id="lbl_voto" class="ver-campo"></label>
-                            <select class="editar-campo form-control" id="selVoto">
-                                <option value="SI">SI</option>
-                                <option value="NO">NO</option>
-                            </select>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <label>HORA</label><br/>
-                            <label id="lbl_hora" class="ver-campo"></label>
-                            <input id="txt_hora" class="editar-campo form-control" type="time">
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <label>ESTADO<span class="requerido">*</span></label><br/>
-                            <label id="lbl_estado" class="ver-campo"></label>
-                            <select id="selEstado" class="editar-campo form-control">
-                                <option value="">Seleccione</option>
-                            </select>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <label>MUNICIPIO<span class="requerido">*</span></label><br/>
-                            <label id="lbl_municipio" class="ver-campo"></label>
-                            <select id="selMunicipio" class="editar-campo form-control">
-                                <option value="">Seleccione</option>
-                            </select>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <label>PARROQUIA<span class="requerido">*</span></label><br/>
-                            <label id="lbl_parroquia" class="ver-campo"></label>
-                            <select id="selParroquia" class="editar-campo form-control">
-                                <option value="">Seleccione</option>                                
-                            </select>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-8">
-                            <label>TERRITORIO<span class="requerido">*</span></label><br/>
-                            <label id="lbl_nucleo" class="ver-campo"></label>
-                            <select id="selNucleo" class="editar-campo form-control">
-                                <option value="">Seleccione</option>                                
-                            </select>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <label>TIPO<span class="requerido">*</span></label><br/>
-                            <label id="lbl_tipo" class="ver-campo"></label>
-                            <select id="selTipo" class="editar-campo form-control">
-                                <option value="">Seleccione</option>                                
-                            </select>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                            <label>TELÉFONO</label><br/>
-                            <label id="lbl_telefono" class="ver-campo"></label>
-                            <input id="txt_telefono" class="editar-campo form-control">
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                            <label>CORREO</label><br/>
-                            <label id="lbl_email" class="ver-campo"></label>
-                            <input id="txt_email" class="editar-campo form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 offset-md-12" >
-                            <label >OBSERVACIONES</label><br/>
-                            <label id="lbl_observaciones" class="ver-campo col"></label>
-                            <textarea id="txt_observaciones" class="editar-campo form-control"></textarea>
-                        </div>
-                    </div>
-                    <hr/>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="dismiss">Cerrar</button>
-                    <button type="button" id="accept" class="btn btn-primary">Aceptar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal -->
-
     <div class="table-container">
         <div class="scrollup">
             <div class="text-center">
@@ -122,12 +15,12 @@
             </div>
         </div>
         <table 
-            id="tbl-trabajadores" 
+            id="tbl-trabajadores-votaron" 
             class="table table-hover table-striped" 
             data-toolbar="#toolbar"
             data-toggle="table" 
             data-show-columns="true" 
-            data-url="{{route('trab_tabla')}}" 
+            data-url="{{route('vot_tabla')}}" 
             data-side-pagination="server" 
             data-pagination="true" 
             data-page-list="[10, 20, 50,  100, 'All']" 
@@ -135,7 +28,6 @@
             data-custom-all-text="Todos"
             data-page-size-func="pageSizeFunc"
             data-page-size="10" 
-            data-buttons="btnAgregar"
             data-show-export="true" 
             data-export-data-type="all" 
             data-export-types="['csv', 'json', 'excel']" 
@@ -151,11 +43,9 @@
         >
             <thead>
                 <tr>
-                    <th colspan="14">LISTADOD DE TRABAJADORES</th>
+                    <th colspan="11">LISTADOD DE TRABAJADORES VOTARON</th>
                 </tr>
                 <tr>
-                    <th data-formatter="operateFormatter" data-events="operateEvents"></th>
-                    <th data-field="id" data-sortable="true">ID</th>
                     <th data-field="cedula" data-filter-control="input" data-sortable="true">CEDULA</th>
                     <th data-field="nombres" data-filter-control="input" data-sortable="true">NOMBRES</th>
                     <th data-field="estado" data-filter-control="select" data-sortable="true">ESTADO</th>
@@ -165,7 +55,6 @@
                     <th data-field="tipo_elector" data-visible="true" data-filter-control="select" data-sortable="true">TIPO</th>
                     <th data-field="telefono" data-visible="true">TELÉFONO</th>
                     <th data-field="email" data-visible="false">CORREO</th>
-                    <th data-field="voto"  data-visible="true" data-filter-control="select" data-sortable="true">VOTÓ</th>
                     <th data-field="observaciones" data-visible="false" data-filter-control="select" data-sortable="true">OBSERVACIONES</th>
                     <th data-field="hora_voto" data-visible="true" data-sortable="true">HORA VOTO</th>
                 </tr>
@@ -229,7 +118,6 @@
                         if (selectControl.length) {
                             // Guardar la opción actualmente seleccionada
                             var selectedOption = selectControl.val();
-                            
                             selectControl.empty();
                             selectControl.append($('<option>', { value: '', text: 'Todos' }));
                             $.each(data.options, function(key, value) {
@@ -249,8 +137,8 @@
             loadFilterOptions('estado');
             loadFilterOptions('nucleo');
             loadFilterOptions('tipo_elector');            
-            // $('#tbl-trabajadores').on('page-change.bs.table refresh.bs.table', function () {
-            $('#tbl-trabajadores').on('post-body.bs.table page-change.bs.table refresh.bs.table', function () {
+            // $('#tbl-trabajadores-votaron').on('page-change.bs.table refresh.bs.table', function () {
+            $('#tbl-trabajadores-votaron').on('post-body.bs.table page-change.bs.table refresh.bs.table', function () {
                 loadFilterOptions('estado');
                 loadFilterOptions('nucleo');
                 loadFilterOptions('tipo_elector');
@@ -260,7 +148,7 @@
                  $("html, body").animate({ scrollTop: 0 }, 600);
             });
             $(".bajar").click(function() {
-                var tableHeight = $("#tbl-trabajadores")[0].scrollHeight;
+                var tableHeight = $("#tbl-trabajadores-votaron")[0].scrollHeight;
                 $("html, body").animate({ scrollTop: tableHeight }, 600);
             });  
             //////////////
@@ -415,7 +303,7 @@
                                 },
                                 dataType: "JSON",
                                 success: function (response) {
-                                    $('#tbl-trabajadores').bootstrapTable('refresh');
+                                    $('#tbl-trabajadores-votaron').bootstrapTable('refresh');
                                     Swal.fire({
                                         icon: 'success',
                                         title: 'HORA REGISTRADA EXITOSAMENTE',
@@ -509,7 +397,7 @@
                                 },
                                 dataType: "JSON",
                                 success: function (response) {
-                                    $('#tbl-trabajadores').bootstrapTable('refresh');
+                                    $('#tbl-trabajadores-votaron').bootstrapTable('refresh');
                                     Swal.fire({
                                         icon: 'success',
                                         title: 'TRABAJADOR ELIMINADO EXITOSAMENTE',
@@ -621,7 +509,7 @@
                                     showConfirmButton: 'Cerrar'
                                 });                                    
                             } else {
-                                $('#tbl-trabajadores').bootstrapTable('refresh');
+                                $('#tbl-trabajadores-votaron').bootstrapTable('refresh');
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'REGISTRO ACTUALIZADO EXITOSAMENTE',

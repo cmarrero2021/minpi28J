@@ -30,12 +30,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $movilizacion_tra=VterritoriosMovilizacion::select('tipo AS TIPO','total_movilizados AS MOVILIZADOS','total_pormovilizar AS FALTANTES')
-        //     ->where('tipo','<>','total_electores')
-        //     ->where('tipo','<>','total_estudiantes')
-        //     ->where('tipo','<>','total_trabajadores')
-        //     ->get();
-
         $estados_movilizacion = VestadosMovilizacion::all();
         $estados = VacumuladoEstado::all();
         $movilizacion_hora = VtotalMovilizacionHora::all();
@@ -49,45 +43,19 @@ class HomeController extends Controller
                 'por_movilizar' => $registro->por_movilizar,
             ];
         }
-        // $total = DB::select("SELECT count(*) AS total,count(*) FILTER (WHERE voto) AS movilizados,count(*) - count(*) FILTER (WHERE voto) AS por_movilizar FROM electores
-        // ");
-        // $total_electores = (array) $total[0];
-        // $jgr_total_electores = $total_electores;
-        // $jgr_total_estudiantes = $total_estudiantes;
-        // $jgr_total_trabajadores = $total_trabajadores;
-        // $jgr_total_administrativos = $total_administrativos;
-        // $jgr_total_obreros = $total_obreros;
-        // $jgr_total_jubilados = $total_jubilados;
-        // $jgr_total_pensionados = $total_pensionados;
-        // $gr_total_electores = json_encode($this->modificarArray($jgr_total_electores));
-        // info($gr_total_electores);
-        // $gr_total_estudiantes = json_encode($this->modificarArray($jgr_total_estudiantes));
-        // $gr_total_trabajadores = json_encode($this->modificarArray($jgr_total_trabajadores));
-        // $gr_total_administrativos = json_encode($this->modificarArray($jgr_total_administrativos));
-        // $gr_total_obreros = json_encode($this->modificarArray($jgr_total_obreros));
-        // $gr_total_jubilados = json_encode($this->modificarArray($jgr_total_jubilados));
-        // $gr_total_pensionados = json_encode($this->modificarArray($jgr_total_pensionados));
-        return view('home', compact(
-            // 'total_electores',
-            // 'total_estudiantes',
-            // 'total_trabajadores',
-            // 'total_administrativos',
-            // 'total_docentes',
-            // 'total_obreros',
-            // 'total_jubilados',
-            // 'total_pensionados',
-            // 'gr_total_electores',
-            // 'gr_total_estudiantes',
-            // 'gr_total_trabajadores',
-            // 'gr_total_administrativos',
-            // 'gr_total_obreros',
-            // 'gr_total_jubilados',
-            // 'gr_total_pensionados',
-            'movilizacion',
-            'movilizacion_hora',
-            'nucleos',
-            'estados',
-        ));
+        // return view('home', compact(
+        //     'movilizacion',
+        //     'movilizacion_hora',
+        //     'nucleos',
+        //     'estados',
+        // ));
+        return response()
+        ->view('home', compact('movilizacion', 'movilizacion_hora', 'nucleos', 'estados'))
+        ->header('Cache-Control', 'no-cache, no-store, must-revalidate')
+        ->header('Pragma', 'no-cache')
+        ->header('Expires', '0');
+
+        
     }
     private function modificarArray($array)
     {

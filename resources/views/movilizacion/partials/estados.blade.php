@@ -9,7 +9,7 @@
         </div>
         <table 
             id="tbl-estados" 
-            class="table table-hover" 
+            class="table table-hover table-striped" 
             data-toolbar="#toolbar"
             data-toggle="table" 
             data-show-columns="true" 

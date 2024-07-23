@@ -37,7 +37,7 @@
                     <th colspan="4">MOVILIZACIÓN POR NÚCLEO</th>
                 </tr>
                 <tr>
-                    <th data-field="nucleo" data-filter-control="select" data-sortable="true">NÚCLEO</th>
+                    <th data-field="nucleo" data-filter-control="select" data-sortable="true">TERRITORIO</th>
                     <th data-field="hora" data-sortable="true">HORA</th>
                     <th data-field="cant" data-sortable="true">CANT.</th>
                     <th data-field="acumulado" data-sortable="true">ACUMULADO</th>

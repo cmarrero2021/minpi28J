@@ -23,7 +23,7 @@
 	<div class="accordion-item">
 		<h2 class="accordion-header" id="encabezadoNucleo">
 			<button class="accordion-button collapsed bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#colapsoNucleo" aria-expanded="false" aria-controls="colapsoNucleo">
-				Movilización por Núcleo
+				Movilización por Territorio
 			</button>
 		</h2>
 		<div id="colapsoNucleo" class="accordion-collapse collapse" aria-labelledby="encabezadoNucleo" data-bs-parent="#acordeonMovilizacionTotal">
@@ -59,7 +59,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="accordion-item">
+{{--	<div class="accordion-item">
 		<h2 class="accordion-header" id="encabezadoNucleoTipo">
 			<button class="accordion-button collapsed bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#colapsoNucleoTipo" aria-expanded="false" aria-controls="colapsoNucleoTipo">
 				Movilización por Nucleo y Tipo
@@ -86,8 +86,8 @@
 			</div>
 		</div>
 	</div>
-	<!-- ////////////////////// -->
-    <hr class="mt-3 mb3"/>
+--}}	<!-- ////////////////////// -->
+{{--    <hr class="mt-3 mb3"/>
     <div class="accordion" id="acordeonMovilizacionTrabajador">
 	<div class="accordion-item">
 		<h2 class="accordion-header" id="encabezadoTotalTrabajador">
@@ -214,8 +214,8 @@
 			</div>
 		</div>
 	</div>
-**</div>
-
+</div>
+--}}
 </div>
 @stop
 @section('css')
